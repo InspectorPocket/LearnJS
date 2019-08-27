@@ -1,13 +1,24 @@
-// get an element by ID
-const title = document.getElementById('page-title');
-console.log(title);
+// 1. get first paragraph, get the inner text, change the text inside
+const para = document.querySelector('p');
 
-// get elements by their class name
-const errors = document.getElementsByClassName('error ');
-console.log(errors[1]);
+// para.innerText = 'help me';
+// console.log(para.innerText);
 
-// get elements by their tag name
-const paras = document.getElementsByTagName('p');
-console.log(paras[2]);
+// 2. change text of all p tags
+const paras = document.querySelectorAll('p');
 
-// forEach only works on query selectors
+// paras.forEach(para => {
+//     console.log(para.innerText);
+//     para.innerText += ' help me';
+// });
+
+const content = document.querySelector('.content');
+
+// console.log(content.innerHTML);
+// content.innerHTML += '<h2>mooore content</h2>';
+
+const people = ['bill', 'ben', 'graham'];
+
+people.forEach(person => {
+    content.innerHTML += `<p>${person}</p>`; 
+});
