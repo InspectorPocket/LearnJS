@@ -1,22 +1,21 @@
-// Math object
+// primitive values
 
-console.log(Math);
-console.log(Math.PI);
-console.log(Math.E);
+// let = scoreOne = 50;
+// let = scoreTwo = scoreOne;
 
-const area = 7.7;
-// rounds the number to nearest integer
-console.log(Math.round(area));
-// floors number to the number below. in this case 7
-console.log(Math.floor(area));
-// ceiling will round the number up. in this case 8
-console.log(Math.ceil(area));
-// removes the decimal and leaves the integer. in this case 7
-console.log(Math.trunc(area));
+// console.log(`scoreOne: ${scoreOne}`, `scoreTwo: ${scoreTwo}`);
 
-// random numbers
+// scoreOne = 100;
+// console.log(`scoreOne: ${scoreOne}`, `scoreTwo: ${scoreTwo}`);
 
-const random = Math.random();
 
-console.log(random);
-console.log(Math.round(random * 100));
+
+// reference values
+
+const userOne = { name: 'bill', age: '89' };
+const userTwo = userOne;
+
+console.log(userOne, userTwo);
+
+userTwo.age = 40;
+console.log(userOne, userTwo);
