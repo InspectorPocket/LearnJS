@@ -1,11 +1,19 @@
 // object literals
 
+// const blogs = [
+//     { title: 'Breaking out of prison 101', likes: 30 },
+//     { title: 'I will bang out your dad', likes: 50 }
+// ];
+
 let user = {
     name: 'phil mitchell',
     age: '56',
     email: 'phil.mitchel@ardbloke.com',
     location: 'strangeways',
-    blogs: ['Breaking out of prison 101', 'I will bang out your dad'],
+    blogs: [
+        { title: 'Breaking out of prison 101', likes: 30 },
+        { title: 'I will bang out your dad', likes: 50 }
+    ],
     // below can be shortened to login() see below examples.
     login: function() {
         console.log(name.toUpperCase(),'logged in');
@@ -19,7 +27,7 @@ let user = {
         // console.log(this.blogs[0]);
         console.log('the user has written the following blogs:');
         this.blogs.forEach(blog => {
-            console.log(blog);
+            console.log(blog.title, 'Likes:', blog.likes);
         });
     }
 };
