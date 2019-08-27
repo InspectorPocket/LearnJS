@@ -1,12 +1,17 @@
-const link = document.querySelector('a');
+const title = document.querySelector('h1');
 
-console.log(link.getAttribute('href'));
-link.setAttribute('href', 'https://www.google.co.uk/');
-link.innerText = 'Google';
+// this overwrites existing styles
+// title.setAttribute('style', 'margin:50px;')
 
-const msg = document.querySelector('p');
+console.log(title.style);
+console.log(title.style.color);
 
+// this way add the sytle
+title.style.margin = '50px';
+title.style.color = 'green';
 
-console.log(msg.getAttribute('class'));
-msg.setAttribute('class', 'success');
-msg.setAttribute('style', 'color: green;');
+// can change styles by converting them to camel case (font-size -> fontSize)
+title.style.fontSize = '60px';
+
+// can reset styles by setting them to ''
+title.style.margin = '';
