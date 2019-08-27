@@ -1,35 +1,22 @@
-// object literals
+// Math object
 
-// const blogs = [
-//     { title: 'Breaking out of prison 101', likes: 30 },
-//     { title: 'I will bang out your dad', likes: 50 }
-// ];
+console.log(Math);
+console.log(Math.PI);
+console.log(Math.E);
 
-let user = {
-    name: 'phil mitchell',
-    age: '56',
-    email: 'phil.mitchel@ardbloke.com',
-    location: 'strangeways',
-    blogs: [
-        { title: 'Breaking out of prison 101', likes: 30 },
-        { title: 'I will bang out your dad', likes: 50 }
-    ],
-    // below can be shortened to login() see below examples.
-    login: function() {
-        console.log(name.toUpperCase(),'logged in');
-    },
-    logout() {
-        console.log('the user logged out');
-    },
-    // in order to use this in the context of a method, you cannot use arrow functions.
-    // an arrow function will make the 'this' refer to the window and not the object
-    logBlogs() {
-        // console.log(this.blogs[0]);
-        console.log('the user has written the following blogs:');
-        this.blogs.forEach(blog => {
-            console.log(blog.title, 'Likes:', blog.likes);
-        });
-    }
-};
+const area = 7.7;
+// rounds the number to nearest integer
+console.log(Math.round(area));
+// floors number to the number below. in this case 7
+console.log(Math.floor(area));
+// ceiling will round the number up. in this case 8
+console.log(Math.ceil(area));
+// removes the decimal and leaves the integer. in this case 7
+console.log(Math.trunc(area));
 
-user.logBlogs();
+// random numbers
+
+const random = Math.random();
+
+console.log(random);
+console.log(Math.round(random * 100));
