@@ -1,24 +1,29 @@
 // object literals
-// use {} to set an object 
+const name = 'pee-pee';
 
 let user = {
     name: 'phil mitchell',
     age: '56',
     email: 'phil.mitchel@ardbloke.com',
     location: 'strangeways',
-    blogs: ['Breaking out of prison 101', 'I will bang out your dad']
+    blogs: ['Breaking out of prison 101', 'I will bang out your dad'],
+    login: function() {
+        console.log(name.toUpperCase(),'logged in');
+    },
+    logout: function() {
+        console.log('the user logged out');
+    },
+    logBlogs: function() {
+
+    }
 };
 
-// user.age = 20;
+let status = true;
 
-console.log(user);
-console.log(user.age);
+if (status) {
+    user.login();
+} else {
+    user.logout();
+}
 
-const key = 'name';
-
-console.log(user[key]);
-
-user['name'] = 'santa claus';
-console.log(user['name']);
-
-console.log(typeof user);
+name.toUpperCase();
