@@ -1,24 +1,12 @@
-// 1. get first paragraph, get the inner text, change the text inside
-const para = document.querySelector('p');
+const link = document.querySelector('a');
 
-// para.innerText = 'help me';
-// console.log(para.innerText);
+console.log(link.getAttribute('href'));
+link.setAttribute('href', 'https://www.google.co.uk/');
+link.innerText = 'Google';
 
-// 2. change text of all p tags
-const paras = document.querySelectorAll('p');
+const msg = document.querySelector('p');
 
-// paras.forEach(para => {
-//     console.log(para.innerText);
-//     para.innerText += ' help me';
-// });
 
-const content = document.querySelector('.content');
-
-// console.log(content.innerHTML);
-// content.innerHTML += '<h2>mooore content</h2>';
-
-const people = ['bill', 'ben', 'graham'];
-
-people.forEach(person => {
-    content.innerHTML += `<p>${person}</p>`; 
-});
+console.log(msg.getAttribute('class'));
+msg.setAttribute('class', 'success');
+msg.setAttribute('style', 'color: green;');
