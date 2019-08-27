@@ -1,14 +1,13 @@
-// goes from top to bottom and grabs the first p tag
-// const para = document.querySelector('div.error');
+// get an element by ID
+const title = document.getElementById('page-title');
+console.log(title);
 
-// console.log(para);
+// get elements by their class name
+const errors = document.getElementsByClassName('error ');
+console.log(errors[1]);
 
-// paras.forEach(para => {
-//     console.log(para);
-// });
+// get elements by their tag name
+const paras = document.getElementsByTagName('p');
+console.log(paras[2]);
 
-const paras = document.querySelectorAll('p');
-const error = document.querySelectorAll('.error');
-
-
-console.log(paras[0], error);
+// forEach only works on query selectors
