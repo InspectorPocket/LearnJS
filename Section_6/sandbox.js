@@ -1,26 +1,17 @@
-const content = document.querySelectorAll('p');
-console.log(content)
+const article = document.querySelector('article');
 
-// console.log(content.classList);
-// content.classList.add('error');
-// content.classList.remove('error');
-// content.classList.add('success');
+console.log(article.children);
+console.log(Array.from(article.children));
 
-
-// innerText will only get text that is visible !(display: none;) for eg
-// textContent will get all the text within the element regardless
-
-content.forEach(twat => {
-    twat.classList.add('message-box');
-    if (twat.textContent.includes('error')) {
-        twat.classList.add('error');
-    } else if (twat.innerText.includes('success')) {
-        twat.classList.add('success');
-    }
+Array.from(article.children).forEach(child => {
+    child.classList.add('article-element');
 });
 
-const title = document.querySelector('.title');
+const title = document.querySelector('h2');
 
-title.classList.toggle('test'); // on
-title.classList.toggle('test'); // off
-title.classList.toggle('test'); // on
+// parentElement.parentElement can be stacked to look up the node tree
+console.log(title.parentElement.parentElement);
+console.log(title.nextElementSibling.previousElementSibling);
+
+// chaining
+console.log(Array.from(title.nextElementSibling.parentElement.children));
