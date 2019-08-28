@@ -1,17 +1,26 @@
-const title = document.querySelector('h1');
+const content = document.querySelectorAll('p');
+console.log(content)
 
-// this overwrites existing styles
-// title.setAttribute('style', 'margin:50px;')
+// console.log(content.classList);
+// content.classList.add('error');
+// content.classList.remove('error');
+// content.classList.add('success');
 
-console.log(title.style);
-console.log(title.style.color);
 
-// this way add the sytle
-title.style.margin = '50px';
-title.style.color = 'green';
+// innerText will only get text that is visible !(display: none;) for eg
+// textContent will get all the text within the element regardless
 
-// can change styles by converting them to camel case (font-size -> fontSize)
-title.style.fontSize = '60px';
+content.forEach(twat => {
+    twat.classList.add('message-box');
+    if (twat.textContent.includes('error')) {
+        twat.classList.add('error');
+    } else if (twat.innerText.includes('success')) {
+        twat.classList.add('success');
+    }
+});
 
-// can reset styles by setting them to ''
-title.style.margin = '';
+const title = document.querySelector('.title');
+
+title.classList.toggle('test'); // on
+title.classList.toggle('test'); // off
+title.classList.toggle('test'); // on

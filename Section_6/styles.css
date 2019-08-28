@@ -1,0 +1,33 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+.container {
+    margin: 0 15%;
+
+}
+
+.title {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.message-box {
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.error {
+    background-color: crimson;
+}
+
+.success {
+    background-color: green;
+}
