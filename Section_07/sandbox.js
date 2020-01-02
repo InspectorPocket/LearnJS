@@ -34,9 +34,6 @@ form.addEventListener('keyup', e => {
 
 
 
-
-
-
 // RegEx TESTING
 // const username = 'pierce';
 // const pattern = /^[a-z]{6,}$/;
