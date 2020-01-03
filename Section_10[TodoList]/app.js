@@ -31,4 +31,15 @@ addForm.addEventListener('submit', e => {
         // remove value from submit field
         addForm.reset();
     }
+
+});
+
+// delete todos
+// add event listener to list
+list.addEventListener('click', e => {
+    // if the element inside 'list' contains the class delete
+    if (e.target.classList.contains('delete')) {
+        // remove parent element of events target
+        e.target.parentElement.remove();
+    }
 });
