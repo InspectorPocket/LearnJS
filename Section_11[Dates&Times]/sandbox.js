@@ -1,22 +1,23 @@
-const beforeDate = 'December 1 2019 7:30:59';
+const clock = document.querySelector('.clock');
 
-// timestamps
-const before = new Date(beforeDate);
-const now = new Date();
 
-const diff = now.getTime() - before.getTime();
-console.log(diff);
+const tick = () => {
+    
+    const now = new Date();
 
-// 1000 ms in a second. 60 seconds in a minute
-const mins = Math.round(diff / 1000 / 60);
-const hours = Math.round(mins / 60);
-const days = Math.round(hours / 24);
-const weeks = Math.round(days / 7);
+    const h = now.getHours();
+    const m = now.getMinutes();
+    const s = now.getSeconds();
 
-console.log(mins, hours, days, weeks);
+    const html = `
+        <span>${h}</span> : 
+        <span>${m}</span> : 
+        <span>${s}</span>
+    `;
+    
+    clock.innerHTML = html;
 
-console.log(`The blog was posted ${days} days ago.`)
+};
 
-// converting timestamps into date objects
-const timestamp = 3740598939;
-console.log(new Date(timestamp));
+
+setInterval(tick,1000);
