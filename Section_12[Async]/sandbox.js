@@ -1,4 +1,4 @@
-const getTodos = callback => {
+const getTodos = (resource, callback) => {
     const request = new XMLHttpRequest();
 
     request.addEventListener('readystatechange', () => {
@@ -12,22 +12,27 @@ const getTodos = callback => {
         }
     });
 
-    request.open('GET', 'todos.json');
+    request.open('GET', resource);
     request.send();
 };
 
 console.log(1);
 console.log(2);
 
-//  this will chase for the information whilst the other functions are being applied
+// this will chase for the information whilst the other functions are being applied
 // always error first
-getTodos((err, data) => {
-    console.log('callback fired');
-    if (err) {
-        console.log(err);
-    } else {
+// this is callback hell. AVOID
+getTodos('todos/luigi.json', (err, data) => {
+    console.log('luigi');
+    console.log(data);
+    getTodos('todos/mario.json', (err, data) => {
+        console.log('mario');
         console.log(data);
-    }
+        getTodos('todos/pierce.json', (err, data) => {
+            console.log('pierce');
+            console.log(data);
+        });
+    });
 });
 
 console.log(3);
