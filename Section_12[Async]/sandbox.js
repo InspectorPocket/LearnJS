@@ -16,47 +16,16 @@ const getTodos = resource => {
     });
 };
 
-getTodos('todos/luigi.json').then((data) => {
-    console.log('promise resolved:', data);
+// once luigi is called, display resolve
+// then return the next getTodos
+getTodos('todos/luigi.json').then(data => {
+    console.log('promise 1 resolved:', data);
+    return getTodos('todos/mario.json');
+}).then(data => {
+    console.log('promise 2 resolved:', data);
+    return getTodos('todos/pierce.json');
+}).then(data => {
+    console.log('promise 3 resolved:', data);
 }).catch(err => {
     console.log('promise rejected:', err);
 });
-
-// Callback solution
-// request.addEventListener('readystatechange', () => {
-//     if (request.readyState === 4 && request.status === 200) {
-//         // parses JSON strings into JS objects
-//         const data = JSON.parse(request.responseText);
-//         // triggers the getTodos function
-//         callback(undefined, data);
-//     } else if (request.readyState === 4) {
-//         callback('could not fetch data', undefined);
-//     }
-// });
-
-// request.open('GET', resource);
-// request.send();
-
-
-// const getSomething = () => {
-//     return new Promise((resolve, reject) => {
-//         // fetch something
-//         // resolve('some data');
-//         reject('some error');
-//     });
-// };
-
-// resolve promise
-// // data and err are 2 arguments for .then()
-// // if resolved -> data | if rejected -> err
-// getSomething().then((data) => {
-//     console.log(data);
-// }, (err) => {
-//     console.log(err);
-// });
-
-// getSomething().then(data => {
-//     console.log(data);
-// }).catch(err => {
-//     console.log(err);
-// });
