@@ -4,10 +4,14 @@ const updateCity = async city =>  {
     const cityDets = await getCity(city);
     const weather = await getWeather(cityDets.Key);
 
-    return {
-        cityDets: cityDets,
-        weather: weather
-    }
+    // Unshorthand
+    // return {
+    //     cityDets: cityDets,
+    //     weather: weather
+    // }
+    
+    // Shorthand (only if property name is same as value)
+    return { cityDets, weather }
 }
 
 cityForm.addEventListener('submit', e => {
