@@ -1,3 +1,4 @@
+// DOc for interating with APIs
 const key = 'AIkjgA3FlkGlwvGQjLIWqHasZ6ACXRKr';
 let city = 'Preston';
 
@@ -27,10 +28,3 @@ const getCity = async city => {
 
     return data[0];
 };
-
-getCity(city)
-    .then(data => { return getWeather(data.Key); })
-    .then(data => {
-        console.log(data);
-    })
-    .catch(err => console.log(err.message));
