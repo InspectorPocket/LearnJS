@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Weather App</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>My<strong>Weather</strong></h1>
+        <form>
+            <img src="img/icons/map-pin.svg" alt="">
+            <!-- <label for="city">Enter a location for weather information</label> -->
+            <input type="text" name="city" placeholder="Enter a location for weather information" class="form-control">
+        </form>
+        <div class="card hide">
+            <!-- <div class="details">
+                <h3>City name</h3>
+                <div class="weather">
+                    <p>Weather</p>
+                    <img src="" alt="">
+                </div>
+                <div class="temperature">
+                    <span>C&deg;</span>
+                </div>
+            </div> -->
+            <div class="details">
+                <h3>New York</h3>
+                <div class="weather">
+                    <p>Sunny</p>
+                    <img src="img/icons/1.svg" alt="">
+                </div>
+                <div class="temperature">
+                    <span>40&deg;</span>
+                </div>
+            </div>
+        </div>
+        <div class="pocket"></div>
+    </div>
+    
+    <script src="scripts/forecast.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
