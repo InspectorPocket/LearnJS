@@ -1,43 +1,31 @@
 const cityForm = document.querySelector('form');
 const card = document.querySelector('.card');
 const details = document.querySelector('.details');
-const time = document.querySelector('img.time');
-const icon = document.querySelector('.icon img');
+const time = document.querySelector('.time');
+const icon = document.querySelector('.weather img');
 
 const updateUI = data => {
-    // Stores each value into the two corresponding variables
     const { cityDets, weather } = data;
-
-    // HTML template for the card's content
-    // TODO update this with new template once built in HTML
-    details.innerHTML = `
-        <h5 class="my-3">${cityDets.EnglishName}</h5>
-        <div class="my-3">${weather.WeatherText}</div>
-        <div class="display-4 my-4">
-            <span>${weather.Temperature.Metric.Value}</span>
-            <span>&deg;C</span>
-        </div>
-    `;
-
-    // Change background image
-    
-    // let timeSrc = null;
-    let timeSrc = weather.IsDayTime ? 'img/day.svg' : 'img/night/svg';
-
-    time.setAttribute('src', timeSrc);
-    
-    // Not Ternary
-    // if (weather.IsDayTime) {
-    //     timeSrc = 'img/day.svg';
-    // } else {
-    //     timeSrc = 'img/night.svg';
-    // }
-    
 
     // Set icon
     const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
 
-    icon.setAttribute('src', iconSrc);
+    // Card HTML
+    details.innerHTML = `
+        <h3>${cityDets.EnglishName}</h3>
+        <div class="weather">
+            <p>${weather.WeatherText}</p>
+            <img src="${iconSrc}" alt="">
+        </div>
+        <div class="temperature">
+            <span>${Math.round(weather.Temperature.Metric.Value)}&deg;</span>
+        </div>
+    `;
+
+    // Change background image
+    let timeSrc = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';
+
+    card.setAttribute('style', `background-image: url(${timeSrc});`);
 
     // Show card
     if (card.classList.contains('hide')) {
@@ -50,13 +38,6 @@ const updateCity = async city =>  {
     const cityDets = await getCity(city);
     const weather = await getWeather(cityDets.Key);
 
-    // Unshorthand
-    // return {
-    //     cityDets: cityDets,
-    //     weather: weather
-    // }
-    
-    // Shorthand (only if property name is same as value)
     return { cityDets, weather };
 }
 

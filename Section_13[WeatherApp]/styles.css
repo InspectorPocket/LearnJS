@@ -1,1 +1,161 @@
-.hide { display: none; }
+:root {
+    --yellow: #FEC601;
+    --orange: #EA7317;
+    --orange-dark: #F26430;
+    --pad-x1: 16px;
+    --pad-x2: 32px;
+}
+
+.hide { 
+    opacity: 0 !important;
+    transition: .6s ease-in-out !important;
+    transform: translateY(420px) !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    color: black;
+}
+
+p {
+    margin: 0;
+}
+
+h1 {
+    padding-top: 20px;
+    color: var(--orange) !important;
+}
+
+h3 {
+    margin: 0;
+}
+
+h1 strong {
+    color: var(--orange) !important;
+}
+
+.container {
+    width: 464px;
+    height: 600px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    background: var(--yellow);
+    padding: 0 var(--pad-x2);
+    overflow: hidden;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin: 20px auto 24px;
+}
+
+form img {
+    position: absolute;
+    height: 18px;
+    width: 16px;
+    margin: 0 12px;
+}
+
+form label {
+    display: flex;
+    position: absolute;
+    font-style: italic;
+    font-size: 14px;
+    margin: 0;
+    margin-left: 36px;
+    pointer-events: none;
+}
+
+.form-control {
+    background-color: transparent;
+    border: var(--orange) 1px solid;
+    padding: 0 0 1px 35px;
+    height: 40px;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    background-color: transparent;
+    border-color: var(--orange);
+    box-shadow: 0 0 0 2px var(--orange);
+}
+
+.form-control::placeholder {
+    font-style: italic;
+    font-size: 14px;
+    color: black !important;
+}
+
+.card {
+    height: 448px;
+    display: block;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    border-radius: 20px;
+    background-position: center top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: .6s ease-in-out;
+    transform: translateY(0);
+}
+
+.details {
+    height: 156px;
+    background: var(--orange-dark);
+    position: absolute;
+    border-radius: 20px 20px 0 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: left;
+    padding: var(--pad-x2);
+}
+
+.details h3 {
+    font-weight: bold;
+}
+
+.temperature {
+    height: 124px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: var(--pad-x2);
+    top: 0;
+}
+
+.temperature span {
+    font-size: 80px;
+    font-weight: bold;
+    margin: auto;
+    letter-spacing: -4px;
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+}
+
+.weather img {
+    height: 36px;
+    width: 36px;
+}
+
+.pocket {
+    width: 100%;
+    height: 36px;
+    background: var(--yellow);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
