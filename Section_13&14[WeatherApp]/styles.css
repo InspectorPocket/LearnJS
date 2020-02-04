@@ -36,9 +36,13 @@ h1 strong {
     color: var(--orange) !important;
 }
 
+body {
+    background: var(--yellow);
+}
+
 .container {
     width: 464px;
-    height: 600px;
+    height: 564px;
     margin: 0 auto;
     text-align: center;
     position: relative;
@@ -152,10 +156,28 @@ form label {
 .pocket {
     width: 100%;
     height: 36px;
+    transform: translateY(-36px);
     background: var(--yellow);
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
     bottom: 0;
-    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    top: 0;
+    overflow: visible;
+    z-index: 99;
+}
+
+.pocket::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    bottom: 0px;
+    width: 80%;
+    height: 50%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    left: 10%;
+    right: 10%;
 }
