@@ -2,9 +2,6 @@
 function User(username, email) {
     this.username = username;
     this.email = email;
-    // this.login = function() {
-    //     console.log(`${username} has logged in`);
-    // };
 }
 
 User.prototype.login = function() {
@@ -16,8 +13,20 @@ User.prototype.logout = function() {
     return this;
 }
 
+function Admin(username, email, title) {
+    User.call(this, username, email)
+    this.title = title;
+}
+
+Admin.prototype = Object.create(User.prototype);
+
+Admin.prototype.deleteUser = function() {
+    // delete user
+}
+
 const userOne = new User('mario', 'mario@nintendo.com');
 const userTwo = new User('luigi', 'luigi@nintendo.com');
+const userThree = new Admin('admin', 'admin@nintendo.com', 'big ol boi');
 
-console.log(userOne, userTwo);
+console.log(userOne, userTwo, userThree);
 userOne.login().logout();
