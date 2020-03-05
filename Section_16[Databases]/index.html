@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databases</title>
+    <style>
+        @keyframes container {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+        @keyframes title {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 70%;
+                opacity: 0.8;
+            }
+        }
+
+        .btn, .btn > input, .btn:hover, .btn:hover input, .btn::before,
+        input[type=text], input[type=text]:focus {
+            transition: .2s ease-in-out;
+        }
+        
+        :root {
+            --colour-dark: #161616;
+            --colour-white: #f2f2f2;
+            --colour-yellow-light: #fff9d9;
+            --colour-yellow: #fff2ab;
+            --colour-yellow-dark: #ffc628;
+            --colour-yellow-darker: #e6a800;
+        }
+        *, *::after, *::before {
+            padding: 0;
+            margin: 0;
+            font-size: 1rem;
+        }
+        html, body {
+            background: var(--colour-yellow);
+            color: var(--colour-dark);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        ul, li { list-style: none; }
+        h1, h2, h3, ul {
+            margin-bottom: 16px;
+            font-size: 2.5rem;
+        }
+        h1 {
+            position: relative;
+            z-index: 1;
+            width: fit-content;
+            margin-bottom: 32px;
+        }
+        h1::before, h1::after {
+            content: '';
+            display: block;
+            position: absolute;
+            transform: translateY(-8px);
+            height: 20%;
+            border-radius: 4px;
+            z-index: -1;
+            background: var(--colour-yellow-dark);
+            animation: title 1.4s ease-in-out both;
+        }
+        h1::before {
+            top: -4px;
+            left: -10%;
+        }
+        h1::after {
+            bottom: -24px;
+            right: -10%;
+        }
+        p { margin-bottom: 8px; }
+        
+        input {
+            padding: 0;
+            height: 100%;
+        }
+        input[type=text] {
+            padding: 0 16px;
+            width: 100%;
+        }
+        input[type=text]:focus {
+            box-shadow: 1px 1px 0 1px var(--colour-yellow-dark) inset,
+                                    1px -1px 0 1px var(--colour-yellow-dark) inset;
+            background: var(--colour-yellow-light);
+        }
+        input, input:hover, input:focus, input:active, input:focus-within, input:visited, input:invalid {
+            outline: none;
+            color: inherit;
+            border: 0;
+            background-color: transparent;
+        }
+
+        ul {
+            position: relative;
+        }
+        ul > li {
+            display: flex;
+            align-items: center;
+            padding-left: 16px;
+        }
+        ul > li::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background: var(--colour-yellow-dark);
+            border-radius: 50%;
+        }
+
+        .container {
+            background: var(--colour-dark);
+            color: var(--colour-white);
+            border-radius: 4px;
+            height: 100%;
+            min-width: 300px;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            margin: 5% auto;
+            padding: 32px;
+            box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.25);
+            border-bottom: 16px solid var(--colour-yellow-dark);
+            overflow: hidden;
+            animation: container .8s ease-in;
+        }
+
+        form {
+            position: relative;
+            margin-top: 16px;
+        }
+
+        .input-group {
+            display: flex;
+            height: 40px;
+            color: var(--colour-dark);
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+        .input-group > input {
+            border-radius: 4px 0 0 4px;
+            background-color: var(--colour-white);
+        }
+        .input-group-append {
+            position: relative;
+        }
+
+        .btn {
+            position: relative;
+            height: 100%;
+        }
+        .btn > input {
+            padding: 0 24px;
+            background-color: var(--colour-yellow-dark);
+            border-radius: 0 4px 4px 0;
+            z-index: 1;
+            cursor: pointer;
+        }
+        .btn:hover input {
+            transform: translateY(-8px);
+            border-radius: 4px 4px 4px 0;
+        }
+        .btn:focus input, .btn:active input {
+            transform: translateY(0);
+        }
+        .btn {
+            border-radius: 0 4px 4px 0;
+        }
+        .btn, .btn:hover {
+            background: var(--colour-yellow-darker);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recipes</h1>
+        <ul></ul>
+        <form>
+            <label for="recipe">Add a new recipe:</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="recipe">
+                <div class="input-group-append">
+                    <div class="btn">
+                        <input type="submit" value="add">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAhbn35fQsGT7lLrc34NBanezo5Lma1dqM",
+            authDomain: "learn-js-2d076.firebaseapp.com",
+            databaseURL: "https://learn-js-2d076.firebaseio.com",
+            projectId: "learn-js-2d076",
+            storageBucket: "learn-js-2d076.appspot.com",
+            messagingSenderId: "486216420942",
+            appId: "1:486216420942:web:712804514b1f032a30fd1f",
+            measurementId: "G-DWSTYMSPH0"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+    <script src="sandbox.js"></script>
+</body>
+</html>
